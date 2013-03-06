@@ -8,3 +8,10 @@
 (define block (lambda (item) (begin (display item) (newline))))
 
 (each arr block)
+
+; =>
+; 1
+; 1
+; 2
+; 3
+; 5

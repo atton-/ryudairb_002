@@ -22,3 +22,11 @@ void each(int arr[], void (*block)(int)) {
         block(arr[i]);
     }
 }
+
+/* =>
+ * 1
+ * 1
+ * 2
+ * 3
+ * 5
+ */
