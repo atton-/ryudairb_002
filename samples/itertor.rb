@@ -5,3 +5,10 @@ arr = [1, 1, 2, 3, 5]
 arr.each do |item|
   puts item
 end
+
+# =>
+# 1
+# 1
+# 2
+# 3
+# 5
