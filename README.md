@@ -153,12 +153,9 @@ end
 
 ``` scheme
 (define (each arr block)
-  (let ((item  (car arr))
-        (items (cdr arr)))
-    (if (null? items)
-      (block item)
-      (begin (block item)
-             (each items block)))))
+    (if (not (null? arr))
+      (begin (block (car arr))
+             (each (cdr arr) block))))
 
 (define arr '(1 1 2 3 5))
 (define block (lambda (item) (begin (display item) (newline))))
@@ -241,3 +238,10 @@ end
 
 あと、この `markdown` は kobito でプレビューしながら書いたのですけれど、割と良い感じでした。
 次回の Ryudai.rb #3 の担当は……誰?
+
+## あとがき
+一応自分で `Array#each` を定義しよう、の私の実装は github に上げてます。
+他のメソッドもいくつか実装してみました。
+
+けれど、while item = arr.shift だと、false や nil が途中に含まれてるとダメそうですね。
+なので arr.size まで順番にアクセスしていくのが無難かもしれないけど最善かもです。
