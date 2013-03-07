@@ -33,7 +33,7 @@ Ruby だと do ... end や { ... } な `Block` がそのまま `Proc` と対応�
 
 > ちなみに Proc の引数を `Proc.curry` でカリー化もできたり
 
-``` Ruby:proc.rb
+``` Ruby
 my_proc = Proc.new do |item|
   puts item
 end
@@ -52,7 +52,7 @@ Ruby で配列の値をそれぞれ出力する時には each とかの Iterator
 
 `Array.each` とか。
 
-``` Ruby:iterator.rb
+``` Ruby
 arr = [1, 1, 2, 3, 5]
 
 arr.each do |item|
@@ -66,7 +66,7 @@ end
 
 ちなみに、 `Iterator` って何ぞ、って人は Java だとこうです。
 
-``` Java:IteratorSample.java
+``` Java
 public class IteratorSample {
     public static void main(String args[]) {
         int[] arr = {1, 1, 2, 3, 5};
@@ -82,7 +82,7 @@ public class IteratorSample {
 それで、実際ブロックを取るメソッドはどうやって書くのかというと、メソッドの引数の部分に & を付けると、そこにブロックが入ります。
 こんな感じ
 
-``` Ruby:proc_method.rb
+``` Ruby
 def proc_arg_method item, &arg_proc
   arg_proc.call item
 end
@@ -119,7 +119,7 @@ end
 ことらしいです。
  `File.open` とかに Block を渡すと勝手に閉じてくれるのはこんな感じだったりするのでしょうか。
 
-``` Ruby:wrapper.rb
+``` Ruby
 def wrapper_method file
   puts "open file"
   yield file
@@ -150,7 +150,7 @@ end
 あと、`lambda` っぽいよね、とか言っちゃったので慣れない `scheme` で each 書いてみました。
 たぶんこんな感じ。
 
-``` scheme:each.scm
+``` scheme
 (define (each arr block)
   (let ((item  (car arr))
         (items (cdr arr)))
@@ -175,7 +175,7 @@ end
 あと、処理を変数として移動できる、って点は `C` の `関数ポインタ` っぽいですよね。
 ってな訳で `C` で書いた `each`。無理矢理感はある。
 
-``` C:each.c
+``` C
 #include <stdio.h>
 #define arr_length 5
 
@@ -218,7 +218,7 @@ void each(int arr[], void (*block)(int)) {
 
 テンプレはこんな感じになるでしょうか
 
-``` Ruby:my_each.rb
+``` Ruby
 def each arr
 	# ...
 end
