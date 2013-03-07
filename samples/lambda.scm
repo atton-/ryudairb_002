@@ -1,7 +1,7 @@
 (define (each arr block)
   (let ((item  (car arr))
         (items (cdr arr)))
-    (if (null? (cdr arr))
+    (if (null? items)
       (block item)
       (begin (block item)
              (each items block)))))
