@@ -180,18 +180,18 @@ end
 #include <stdio.h>
 #define arr_length 5
 
-void block(int);
+void my_block(int);
 void each(int[], void (*)(int));
 
 int main(int argc, char const* argv[]) {
     int arr[arr_length] = {1, 1, 2, 3, 5};
 
-    each(arr, block);
+    each(arr, my_block);
     
     return 0;
 }
 
-void block(int item) {
+void my_block(int item) {
     printf("%d\n", item);
 }
 
