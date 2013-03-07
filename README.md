@@ -98,7 +98,7 @@ end
 
 あと、`yield`と書けば、渡されたブロックを実行できるので
 
-``` Ruby:yield_method.rb
+``` Ruby
 def yield_method item
   yield item
 end
