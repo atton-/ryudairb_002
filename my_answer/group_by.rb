@@ -5,8 +5,8 @@ def group_by arr
   tmp_arr = arr.clone
   while item = tmp_arr.shift
     key = yield item
-    hash[key] ||= []
-    hash[yield(item)] <<  item
+    hash[key] ||= [] 
+    hash[key] << item
   end
   hash
 end
