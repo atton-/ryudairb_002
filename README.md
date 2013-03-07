@@ -50,7 +50,7 @@ Ruby で配列の値をそれぞれ出力する時には each とかの Iterator
 
 > というか Ruby 的には Enumerator と言った方が良いのかな
 
-`Array.each` とか。
+`Array#each` とか。
 
 ``` Ruby
 arr = [1, 1, 2, 3, 5]
@@ -61,7 +61,7 @@ end
 ```
 
 これに渡している do から end までのものが `ブロック` なのです。
-引数 `item` を取って、それを puts する、という `ブロック` を `Array.each` に渡している、と。
+引数 `item` を取って、それを puts する、という `ブロック` を `Array#each` に渡している、と。
 なので意外と自然に使ってたりします。 `lambda` だー、とか思う人は関数型な感じなのかもしれませんが私はさっぱりですす。
 
 ちなみに、 `Iterator` って何ぞ、って人は Java だとこうです。
@@ -136,15 +136,15 @@ end
 ```
 
 ## each とかを書いてみよう
-というわけで、Proc/Block で処理を渡すことができるようになったので、 `Array.each` を自分で実装してみましょう。
+というわけで、Proc/Block で処理を渡すことができるようになったので、 `Array#each` を自分で実装してみましょう。
 
 * 配列からを1つずつ値を取る
 * 1つ取った値を、処理に投げる
 
 ことでできそうですかねー?
 
-> 楽勝な人は `Array.map` とか `Array.inject` とか `Array.all?` とか `Enumerator` の自前実装をしてみるのはどうでしょう
-> `Array.inject` の実装気になる
+> 楽勝な人は `Array#map` とか `Array#inject` とか `Array#all?` とか `Enumerator` の自前実装をしてみるのはどうでしょう
+> `Array#inject` の実装気になる
 
 
 あと、`lambda` っぽいよね、とか言っちゃったので慣れない `scheme` で each 書いてみました。
@@ -210,7 +210,7 @@ void each(int arr[], void (*block)(int)) {
  */
 ```
 
-ってな感じで `Ruby` で `Array.each` 相当のものを書いてみましょう。
+ってな感じで `Ruby` で `Array#each` 相当のものを書いてみましょう。
 
 > `Open Class`はアレかもなので、普通のメソッドで。
 > 完璧でなくても Block を扱うのがメインなのでそっちを気にしてもらえれば OK だと思います
