@@ -152,10 +152,12 @@ end
 
 ``` scheme:each.scm
 (define (each arr block)
-  (if (null? (cdr arr))
-    (block (car arr))
-    (begin (block (car arr))
-           (each (cdr arr) block))))
+  (let ((item  (car arr))
+        (items (cdr arr)))
+    (if (null? (cdr arr))
+      (block item)
+      (begin (block item)
+             (each items block)))))
 
 (define arr '(1 1 2 3 5))
 (define block (lambda (item) (begin (display item) (newline))))
